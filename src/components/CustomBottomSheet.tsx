@@ -6,6 +6,7 @@ import {globalStyles} from '../globals/styles';
 import {View, StyleSheet, Text, Pressable} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import LocationInput from './LocationInput';
 
 const CustomBottomSheet = () => {
   const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
@@ -59,6 +60,11 @@ const CustomBottomSheet = () => {
       setIsFullScreen(true);
       return;
     }
+    if (index > 5) {
+      setIsFullScreen(false);
+      bottomSheetRef.current?.collapse();
+    }
+    setIsFullScreen(false);
     return console.log('handleSheetChange', index);
   }, []);
   return (
@@ -73,6 +79,7 @@ const CustomBottomSheet = () => {
           <>
             <View style={styles.headerContainer}>
               <Pressable
+                onPress={() => bottomSheetRef.current?.collapse()}
                 style={[
                   styles.icons,
                   {backgroundColor: 'transparent', borderRadius: 0},
@@ -87,7 +94,7 @@ const CustomBottomSheet = () => {
                 <Icon name="add" size={24} color="#333" />
               </Pressable>
             </View>
-
+            <LocationInput />
             <View>
               {recentTrips.map((trip, index) => (
                 <View
@@ -124,7 +131,7 @@ const CustomBottomSheet = () => {
           </>
         ) : (
           <>
-            <Pressable style={styles.searchBar}>
+            <Pressable style={styles.searchBar} onPress={() => bottomSheetRef.current?.expand()}>
               <View style={styles.searchInputContainer}>
                 <Icon
                   name="search"
