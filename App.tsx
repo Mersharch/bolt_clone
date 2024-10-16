@@ -26,7 +26,7 @@ const App = () => {
           screenOptions={{
             tabBarStyle: {
               height: getScreenHeight(50),
-              paddingBottom: getScreenPercent(20),
+              paddingBottom: getScreenPercent(5),
             },
             tabBarActiveTintColor: '#1D3261',
             tabBarInactiveTintColor: '#8E8E93',

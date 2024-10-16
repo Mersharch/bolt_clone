@@ -3,12 +3,12 @@ import React, {useRef} from 'react';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {getScreenPercent} from '../utils/responsive.ts';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {SafeAreaView} from 'react-native-safe-area-context';
+// import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Map = () => {
   const mapRef = useRef<any>();
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Pressable style={styles.icon}>
         <Ionicons name="menu" size={24} />
       </Pressable>
@@ -25,7 +25,7 @@ const Map = () => {
           longitudeDelta: 0.012,
         }}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
   container: {flex: 1},
   icon: {
     position: 'absolute',
-    top: getScreenPercent(20),
-    left: getScreenPercent(10),
+    top: getScreenPercent(30),
+    left: getScreenPercent(30),
     zIndex: 5,
     display: 'flex',
     flexDirection: 'row',
