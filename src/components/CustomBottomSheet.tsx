@@ -20,12 +20,12 @@ const CustomBottomSheet = () => {
     {
       title: 'Bolt Food',
       subtitle: 'Fast Selivery',
-      icon: 'boxes',
+      icon: 'fast-food',
     },
     {
       title: 'Bolt Send',
       subtitle: 'Parcel Delivery',
-      icon: 'calendar',
+      icon: 'send',
     },
   ];
 
@@ -131,7 +131,9 @@ const CustomBottomSheet = () => {
           </>
         ) : (
           <>
-            <Pressable style={styles.searchBar} onPress={() => bottomSheetRef.current?.expand()}>
+            <Pressable
+              style={styles.searchBar}
+              onPress={() => bottomSheetRef.current?.expand()}>
               <View style={styles.searchInputContainer}>
                 <Icon
                   name="search"
@@ -162,7 +164,7 @@ const CustomBottomSheet = () => {
             <View style={styles.navContainer}>
               {navOptions.map((option, index) => (
                 <View key={index} style={styles.navOption}>
-                  <Icon name={option.icon} size={24} />
+                  <Icon name={option.icon} size={24} color="green" />
                   <View>
                     <Text style={globalStyles.title}>{option.title}</Text>
                     <Text style={globalStyles.tinyText}>{option.subtitle}</Text>
