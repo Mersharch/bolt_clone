@@ -31,6 +31,7 @@ const App = () => {
             tabBarActiveTintColor: '#1D3261',
             tabBarInactiveTintColor: '#8E8E93',
             headerShown: false,
+            tabBarHideOnKeyboard: true,
           }}>
           <Tab.Screen
             name="Home"
